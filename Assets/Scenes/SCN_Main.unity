@@ -179,12 +179,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 239017528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f8d1e930d7f58438e8e450fe5fc67b, type: 3}
+  m_Script: {fileID: 11500000, guid: 07cad1fa3b12e5044ab29e182914bb6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 50
-  minZoomDistance: 20
-  maxZoomDistance: 10
+  resetDuration: 0.5
 --- !u!1001 &395187487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1498,6 +1496,7 @@ GameObject:
   - component: {fileID: 2069680720}
   - component: {fileID: 2069680719}
   - component: {fileID: 2069680722}
+  - component: {fileID: 2069680723}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1523,7 +1522,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.31132078, g: 0.13310058, b: 0.09251513, a: 0}
+  m_BackGroundColor: {r: 0.103729084, g: 0.16147912, b: 0.3490566, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1591,9 +1590,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f8d1e930d7f58438e8e450fe5fc67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 10
+  zoomSpeed: 5
   minZoomDistance: 2
-  maxZoomDistance: 10
+  maxZoomDistance: 30
+--- !u!114 &2069680723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069680718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff91c2ccb849ad14f9f6cd2bd75a01b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetDuration: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
