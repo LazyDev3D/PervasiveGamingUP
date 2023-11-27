@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class SkeletonPartVisibility : MonoBehaviour
 {
-    public LayerMask skeletonLayer;
+    public GameObject skinObject;
+    public GameObject musclesObject;
+    public GameObject skeletonObject;
+
+    private GameObject lastClickedObject;
+    private bool isInIsolationMode;
 
     void Update()
     {
@@ -11,24 +16,52 @@ public class SkeletonPartVisibility : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, skeletonLayer))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 Debug.Log("Hit: " + hit.collider.gameObject.name);
 
-                ToggleSkeletonVisibility(false);
-                hit.collider.gameObject.SetActive(true);
-            }
-            else
-            {
-                Debug.Log("Clicked outside the skeleton");
+                GameObject clickedObject = hit.collider.gameObject;
 
-                ToggleSkeletonVisibility(true);
+                if (lastClickedObject == clickedObject)
+                {
+                    // Clicked the same object again
+                    if (isInIsolationMode)
+                    {
+                        // Toggle visibility for the entire layer of the last clicked object
+                        ToggleLayerVisibility(skinObject, true);
+                        ToggleLayerVisibility(musclesObject, true);
+                        ToggleLayerVisibility(skeletonObject, true);
+
+                        isInIsolationMode = false;
+                    }
+                    else
+                    {
+                        // Toggle visibility for the entire layer
+                        ToggleLayerVisibility(skinObject, true);
+                        ToggleLayerVisibility(musclesObject, true);
+                        ToggleLayerVisibility(skeletonObject, true);
+                    }
+                }
+                else
+                {
+                    // Clicked a different object, toggle visibility of the clicked layer
+                    ToggleLayerVisibility(skinObject, false);
+                    ToggleLayerVisibility(musclesObject, false);
+                    ToggleLayerVisibility(skeletonObject, false);
+
+                    // Then, toggle visibility for the specific clicked object
+                    clickedObject.SetActive(true);
+
+                    lastClickedObject = clickedObject;
+                    isInIsolationMode = true;
+                }
             }
         }
     }
-    void ToggleSkeletonVisibility(bool isVisible)
+
+    void ToggleLayerVisibility(GameObject layerObject, bool isVisible)
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in layerObject.transform)
         {
             child.gameObject.SetActive(isVisible);
         }
