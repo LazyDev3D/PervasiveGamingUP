@@ -3,27 +3,52 @@ using UnityEngine.UI;
 
 public class MeshVisibilityToggle : MonoBehaviour
 {
-    public Button Button;
+    public Button SkinButton;
+    public Button MuscleButton;
+    public Button SkeletonButton;
+
     public GameObject SkinMesh;
     public GameObject MuscleMesh;
     public GameObject SkeletonMesh;
 
     void Start()
     {
-        // Add a listener to the skinButton
-        if (Button != null)
+        // Add listeners to the buttons
+        if (SkinButton != null)
         {
-            Button.onClick.AddListener(ToggleSkinVisibility);
+            SkinButton.onClick.AddListener(ToggleSkinVisibility);
+        }
+
+        if (MuscleButton != null)
+        {
+            MuscleButton.onClick.AddListener(ToggleMuscleVisibility);
+        }
+
+        if (SkeletonButton != null)
+        {
+            SkeletonButton.onClick.AddListener(ToggleSkeletonVisibility);
         }
     }
 
     void ToggleSkinVisibility()
     {
-        // Toggle the visibility of the skin mesh
-        if (SkinMesh != null)
-        {
-            SkinMesh.SetActive(!SkinMesh.activeSelf);
-        }
+        ToggleLayerVisibility(SkinMesh, true);
+        ToggleLayerVisibility(MuscleMesh, false);
+        ToggleLayerVisibility(SkeletonMesh, false);
+    }
+
+    void ToggleMuscleVisibility()
+    {
+        ToggleLayerVisibility(SkinMesh, false);
+        ToggleLayerVisibility(MuscleMesh, true);
+        ToggleLayerVisibility(SkeletonMesh, false);
+    }
+
+    void ToggleSkeletonVisibility()
+    {
+        ToggleLayerVisibility(SkinMesh, false);
+        ToggleLayerVisibility(MuscleMesh, false);
+        ToggleLayerVisibility(SkeletonMesh, true);
     }
 
     void Update()
@@ -31,21 +56,15 @@ public class MeshVisibilityToggle : MonoBehaviour
         // Check for numeric key presses (1, 2, 3)
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ToggleLayerVisibility(SkinMesh, true);
-            ToggleLayerVisibility(MuscleMesh, false);
-            ToggleLayerVisibility(SkeletonMesh, false);
+            ToggleSkinVisibility();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ToggleLayerVisibility(SkinMesh, false);
-            ToggleLayerVisibility(MuscleMesh, true);
-            ToggleLayerVisibility(SkeletonMesh, false);
+            ToggleMuscleVisibility();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ToggleLayerVisibility(SkinMesh, false);
-            ToggleLayerVisibility(MuscleMesh, false);
-            ToggleLayerVisibility(SkeletonMesh, true);
+            ToggleSkeletonVisibility();
         }
     }
 
