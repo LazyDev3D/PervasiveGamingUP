@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraZoom : MonoBehaviour
+public class CameraControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float zoomSpeed = 5f;
+    public float minZoomDistance = 2f;
+    public float maxZoomDistance = 10f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+            ZoomCamera();
+    }
+    void ZoomCamera()
+    {
+        // Get input from the mouse scroll wheel
+        float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+
+        // Calculate the zoom distance based on the scroll wheel input
+        float zoomDistance = Mathf.Clamp(transform.localPosition.z - scrollWheelInput * zoomSpeed, -maxZoomDistance, -minZoomDistance);
+
+        // Zoom in/out along the forward axis
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, zoomDistance);
     }
 }
