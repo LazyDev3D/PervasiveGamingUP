@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraReset : MonoBehaviour
 {
@@ -56,5 +57,11 @@ public class CameraReset : MonoBehaviour
         {
             isResetting = false;
         }
+    }
+
+    // Method to be called to start the reset transition
+    public void ResetCamera()
+    {
+        StartReset();
     }
 }

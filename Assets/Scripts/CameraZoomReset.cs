@@ -35,7 +35,8 @@ public class CameraResetScript : MonoBehaviour
         }
     }
 
-    void StartReset()
+    // Make the function public to make it accessible from the Unity Editor
+    public void StartReset()
     {
         isResetting = true;
         resetTimer = 0.0f;

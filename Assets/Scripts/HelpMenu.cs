@@ -24,6 +24,15 @@ public class PanelMovement : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        // Check for the 'H' key press
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            TogglePanelVisibility();
+        }
+    }
+
     void TogglePanelVisibility()
     {
         float targetXPosition = isPanelVisible ? -800f : targetX;
