@@ -77,7 +77,7 @@ public class VoiceRecognition : MonoBehaviour
 
     }
 
-    private void RotateCamera(Vector3 axis)
+    public void RotateCamera(Vector3 axis)
     {
         // Implement your camera rotation logic here
         // Rotate the camera continuously around the specified axis
@@ -85,13 +85,13 @@ public class VoiceRecognition : MonoBehaviour
         transform.Rotate(axis * Time.deltaTime * rotationSpeed);
     }
 
-    private void StartContinuousRotation(Vector3 axis)
+    public void StartContinuousRotation(Vector3 axis)
     {
         isRotating = true;
         rotatingAxis = axis;
     }
 
-    private void StopContinuousRotation()
+    public void StopContinuousRotation()
     {
         isRotating = false;
     }

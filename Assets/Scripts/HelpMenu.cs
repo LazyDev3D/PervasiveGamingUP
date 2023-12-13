@@ -33,7 +33,7 @@ public class PanelMovement : MonoBehaviour
         }
     }
 
-    void TogglePanelVisibility()
+    public void TogglePanelVisibility()
     {
         float targetXPosition = isPanelVisible ? -800f : targetX;
         StartCoroutine(MovePanelCoroutine(targetXPosition));
