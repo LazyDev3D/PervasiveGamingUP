@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class LeapMoveButtons : MonoBehaviour
 {
-    public VoiceRecognition VoiceRecognition; // Reference to the PanelMovement script
+    public VoiceRecognition VoiceRecognition;
+    public CameraReset camer;// Reference to the PanelMovement script
     public string objectName; // You can set this in the Inspector or directly in the script
     public Vector3 direction;
 
