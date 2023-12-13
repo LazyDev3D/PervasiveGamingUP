@@ -34,7 +34,7 @@ public class CameraReset : MonoBehaviour
         }
     }
 
-    void StartReset()
+    public void StartReset()
     {
         isResetting = true;
         resetTimer = 0.0f;

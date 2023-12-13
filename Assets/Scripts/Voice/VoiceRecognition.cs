@@ -108,7 +108,7 @@ public class VoiceRecognition : MonoBehaviour
         Debug.Log("Rotation speed increased to: " + rotationSpeed);
     }
 
-    private void StopContinuousCommands()
+    public void StopContinuousCommands()
     {
         isRotating = false;
         StopContinuousZoom();

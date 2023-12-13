@@ -30,21 +30,21 @@ public class MeshVisibilityToggle : MonoBehaviour
         }
     }
 
-    void ToggleSkinVisibility()
+    public void ToggleSkinVisibility()
     {
         ToggleLayerVisibility(SkinMesh, true);
         ToggleLayerVisibility(MuscleMesh, false);
         ToggleLayerVisibility(SkeletonMesh, false);
     }
 
-    void ToggleMuscleVisibility()
+    public void ToggleMuscleVisibility()
     {
         ToggleLayerVisibility(SkinMesh, false);
         ToggleLayerVisibility(MuscleMesh, true);
         ToggleLayerVisibility(SkeletonMesh, false);
     }
 
-    void ToggleSkeletonVisibility()
+    public void ToggleSkeletonVisibility()
     {
         ToggleLayerVisibility(SkinMesh, false);
         ToggleLayerVisibility(MuscleMesh, false);

@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &16405302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8308616371984374613, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+  m_PrefabInstance: {fileID: 1693607777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &16405310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16405302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ffc3f964c051d4e82261084930b1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoiceRecognition: {fileID: 239017533}
+  objectName: ButtonDown
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &54993047
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +687,6 @@ GameObject:
   - component: {fileID: 239017531}
   - component: {fileID: 239017532}
   - component: {fileID: 239017533}
-  - component: {fileID: 239017534}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
@@ -745,18 +764,6 @@ MonoBehaviour:
   zoomSpeed: 5
   recognitionText: {fileID: 206108695}
   mainCamera: {fileID: 2069680720}
---- !u!114 &239017534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239017528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ffc3f964c051d4e82261084930b1a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &358945767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1117,26 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 811357732}
   m_SourcePrefab: {fileID: 100100000, guid: 8c9663287f7d0444d82ade2427ee49ef, type: 3}
+--- !u!1 &396709284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8308616371867118563, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+  m_PrefabInstance: {fileID: 1693607777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &396709292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396709284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ffc3f964c051d4e82261084930b1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoiceRecognition: {fileID: 239017533}
+  objectName: ButtonUp
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1001 &459610332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1197,6 +1224,26 @@ PrefabInstance:
     - target: {fileID: 4669553856266401568, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       propertyPath: m_Name
       value: leapToggleSkeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 1970323472}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842590232}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleSkeletonVisibility
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MeshVisibilityToggle, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -5670,6 +5717,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738724001}
   m_CullTransparentMesh: 1
+--- !u!1 &791661438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8308616371892500036, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+  m_PrefabInstance: {fileID: 1693607777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &791661446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791661438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ffc3f964c051d4e82261084930b1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoiceRecognition: {fileID: 239017533}
+  objectName: ButtonRight
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &811357728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8c9663287f7d0444d82ade2427ee49ef, type: 3}
@@ -8928,6 +8995,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: leapToggleSkin
       objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 1970323472}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842590232}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleSkinVisibility
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MeshVisibilityToggle, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 208765187, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
@@ -8955,6 +9042,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelMovement: {fileID: 917017057}
+--- !u!114 &1205146377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205146361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ffc3f964c051d4e82261084930b1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoiceRecognition: {fileID: 239017533}
+  objectName: leapHelp
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &1286023083
 GameObject:
   m_ObjectHideFlags: 0
@@ -9212,6 +9314,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329392159}
   m_CullTransparentMesh: 1
+--- !u!1 &1374930271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8308616371579485991, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+  m_PrefabInstance: {fileID: 1693607777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1374930279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374930271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ffc3f964c051d4e82261084930b1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoiceRecognition: {fileID: 239017533}
+  objectName: ButtonLeft
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &1393610105
 GameObject:
   m_ObjectHideFlags: 0
@@ -9725,6 +9847,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: leapToggleMuscle
       objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 1970323472}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842590232}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleMuscleVisibility
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MeshVisibilityToggle, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 208765187, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
@@ -9742,6 +9884,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2069680721}
     m_Modifications:
+    - target: {fileID: 1595274854992100153, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: m_text
+      value: "\u2191\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595274854992100159, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601864844495126438, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: m_Name
+      value: ButtonUp
+      objectReference: {fileID: 0}
     - target: {fileID: 3601864845529246731, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5679944
@@ -9834,6 +9988,162 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.04199999
       objectReference: {fileID: 0}
+    - target: {fileID: 6263971047841820549, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: m_Name
+      value: ButtonUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378719851091009, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378719851091009, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 16405310}
+    - target: {fileID: 8277378719851091009, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378719851091009, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 16405310}
+    - target: {fileID: 8277378719851091009, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378719851091009, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378719851091009, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeapMoveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378719851091009, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeapMoveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 1970323472}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 791661446}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 791661446}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeapMoveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721034287440, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeapMoveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 1970323472}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 396709292}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 396709292}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeapMoveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721043178743, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeapMoveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721358868531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721358868531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1374930279}
+    - target: {fileID: 8277378721358868531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721358868531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1374930279}
+    - target: {fileID: 8277378721358868531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721358868531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721358868531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeapMoveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277378721358868531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeapMoveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308616371579485991, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: m_Name
+      value: ButtonLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308616371867118563, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: m_Name
+      value: ButtonUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308616371892500036, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: m_Name
+      value: ButtonRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308616371984374613, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: m_Name
+      value: ButtonDown
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1595274855736660376, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
@@ -9844,11 +10154,27 @@ PrefabInstance:
     - {fileID: 6263971047690860782, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
     - {fileID: 6263971046396437736, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
     - {fileID: 6263971046490777531, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+    - {fileID: 1595274853866314150, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3601864845576240624, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
       insertIndex: -1
       addedObject: {fileID: 927770961}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8308616371867118563, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 396709292}
+    - targetCorrespondingSourceObject: {fileID: 1595274854992100159, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8308616371892500036, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 791661446}
+    - targetCorrespondingSourceObject: {fileID: 8308616371579485991, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1374930279}
+    - targetCorrespondingSourceObject: {fileID: 8308616371984374613, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 16405310}
   m_SourcePrefab: {fileID: 100100000, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
 --- !u!1 &1694589154 stripped
 GameObject:
@@ -10151,6 +10477,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2047028619}
     m_Modifications:
+    - target: {fileID: 1095476122, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095476124, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: m_text
+      value: R
+      objectReference: {fileID: 0}
     - target: {fileID: 3257021079503596468, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -10231,13 +10565,24 @@ PrefabInstance:
       propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ButtonInteraction, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7308687533616100166, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      propertyPath: m_Name
+      value: leapHelp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 208765187, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7308687533616100166, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1205146369}
+    - targetCorrespondingSourceObject: {fileID: 7308687533616100166, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1205146377}
+    - targetCorrespondingSourceObject: {fileID: 1095476122, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
 --- !u!1001 &1839403215
 PrefabInstance:
