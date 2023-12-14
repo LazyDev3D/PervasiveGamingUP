@@ -23,12 +23,16 @@ public class VoiceRecognition : MonoBehaviour
     private bool isZooming = false;
     public float zoomSpeed = 5f;
 
+    private LeapPointing leapPointingScript;
+
     public TextMeshProUGUI recognitionText; // Reference to your TMP Text element
 
     public Camera mainCamera;
 
     void Start()
     {
+        leapPointingScript = GetComponent<LeapPointing>();
+        string[] keywords = { "What is this" };
         // Set up voice commands
         voiceCommands.Add("rotate left", () => StartContinuousRotation(Vector3.up));
         voiceCommands.Add("rotate right", () => StartContinuousRotation(Vector3.down));
@@ -53,7 +57,25 @@ public class VoiceRecognition : MonoBehaviour
 
         // Update the recognition text on the UI
         recognitionText.text = "You said: " + speech.text;
+
+        if (args.text == "What is this")
+        {
+            // Get the last pointed object from the LeapPointing script
+            GameObject pointedObject = leapPointingScript.GetLastPointedObject();
+
+            if (pointedObject != null)
+            {
+                // Now, you can perform the isolate script or any other action with the pointed object
+                Debug.Log("Performing action on: " + pointedObject.name);
+                // Add your logic to perform isolation or any other action here
+            }
+            else
+            {
+                Debug.Log("No object pointed at.");
+            }
+        }
     }
+}
 
 
     void Update()
