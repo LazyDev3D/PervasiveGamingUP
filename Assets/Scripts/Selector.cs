@@ -13,6 +13,8 @@ public class SkeletonPartVisibility : MonoBehaviour
     public GameObject infoPanel;
     public TextMeshProUGUI infoTitle;
 
+    public ObjectDescriptionManager objectDescriptionManager;
+
     void Start()
     {
         // Ensure the initial state
@@ -40,7 +42,7 @@ public class SkeletonPartVisibility : MonoBehaviour
                         ToggleLayerVisibility(skeletonObject, true);
 
                         isInIsolationMode = false;
-                        ToggleInfoPanelVisibility(false);
+                        UpdateInfoPanelVisibility();
                     }
                     else
                     {
@@ -60,10 +62,12 @@ public class SkeletonPartVisibility : MonoBehaviour
                     isInIsolationMode = true;
 
                     UpdateInfoPanel();
+                    UpdateInfoPanelVisibility();
                 }
             }
         }
     }
+
 
     public void ToggleLayerVisibility(GameObject layerObject, bool isVisible)
     {
@@ -85,7 +89,7 @@ public class SkeletonPartVisibility : MonoBehaviour
         isInIsolationMode = true;
     }
 
-    void ToggleInfoPanelVisibility(bool isVisible)
+    public void ToggleInfoPanelVisibility(bool isVisible)
     {
         if (infoPanel != null)
         {
@@ -93,15 +97,30 @@ public class SkeletonPartVisibility : MonoBehaviour
         }
     }
 
-    void UpdateInfoPanel()
+    public void UpdateInfoPanel()
     {
         if (infoPanel != null && infoTitle != null && lastClickedObject != null)
         {
             // Assuming lastClickedObject has a name to display
             infoTitle.text = lastClickedObject.name;
-
-            // Make the InfoPanel visible
-            ToggleInfoPanelVisibility(true);
+            string meshName = lastClickedObject.name;
+            objectDescriptionManager.ShowObjectDescription(meshName);
         }
     }
+
+    public void UpdateInfoPanelVisibility()
+    {
+        // Make the InfoPanel visible based on the isolation mode
+        ToggleInfoPanelVisibility(isInIsolationMode);
+    }
+
+    public void HideInfoPanel()
+    {
+        // Assuming InfoPanel is a GameObject that needs to be hidden
+        if (infoPanel != null)
+        {
+            infoPanel.SetActive(false);
+        }
+    }
+
 }

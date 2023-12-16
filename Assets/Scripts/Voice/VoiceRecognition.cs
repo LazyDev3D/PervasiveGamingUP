@@ -37,6 +37,7 @@ public class VoiceRecognition : MonoBehaviour
 
     public LeapPointing LeapPointing;
     public SkeletonPartVisibility skeletonPartVisibility;
+    private ObjectDescriptionManager objectDescriptionManager;
 
 
     void Start()
@@ -220,15 +221,7 @@ public class VoiceRecognition : MonoBehaviour
 
     private void IdentifyLastPointedObject()
     {
-        Debug.Log("IdentifyLastFunction");
-        Debug.Log("IdentifyLastFunction");
-        Debug.Log("IdentifyLastFunction");
-        Debug.Log("IdentifyLastFunction");
-        Debug.Log("IdentifyLastFunction");
-        Debug.Log("IdentifyLastFunction");
-        Debug.Log("IdentifyLastFunction");
-        Debug.Log("IdentifyLastFunction");
-        Debug.Log("IdentifyLastFunction");
+
         if (LeapPointing != null && skeletonPartVisibility != null)
         {
             GameObject lastPointedObject = LeapPointing.lastPointedObject;
@@ -243,6 +236,13 @@ public class VoiceRecognition : MonoBehaviour
 
                 // Toggle isolation mode in SkeletonPartVisibility
                 skeletonPartVisibility.IsolatePointedObject(lastPointedObject);
+                skeletonPartVisibility.UpdateInfoPanel();
+                skeletonPartVisibility.UpdateInfoPanelVisibility();
+                string meshName = lastPointedObject.name;
+                if (objectDescriptionManager != null)
+                {
+                    objectDescriptionManager.ShowObjectDescription(meshName);
+                }
             }
             else
             {
@@ -263,6 +263,7 @@ public class VoiceRecognition : MonoBehaviour
             skeletonPartVisibility.ToggleLayerVisibility(skeletonPartVisibility.skinObject, true);
             skeletonPartVisibility.ToggleLayerVisibility(skeletonPartVisibility.musclesObject, true);
             skeletonPartVisibility.ToggleLayerVisibility(skeletonPartVisibility.skeletonObject, true);
+            skeletonPartVisibility.HideInfoPanel();
 
             GameObject lastPointedObject = LeapPointing.lastPointedObject;
 
