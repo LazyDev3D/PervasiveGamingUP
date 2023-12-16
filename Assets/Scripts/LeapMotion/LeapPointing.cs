@@ -5,7 +5,7 @@ using Leap.Unity;
 public class LeapPointing : MonoBehaviour
 {
     private LeapServiceProvider leapProvider;
-    private GameObject lastPointedObject;
+    public GameObject lastPointedObject;
 
     void Start()
     {

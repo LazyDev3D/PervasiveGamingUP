@@ -42,7 +42,7 @@ public class CameraResetScript : MonoBehaviour
         resetTimer = 0.0f;
     }
 
-    void UpdateReset()
+    public void UpdateReset()
     {
         // Increment the timer
         resetTimer += Time.deltaTime;

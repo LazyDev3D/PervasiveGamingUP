@@ -763,8 +763,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 0.5
+  panSpeed: 0.1
   recognitionText: {fileID: 206108695}
   mainCamera: {fileID: 2069680720}
+  cameraReset: {fileID: 239017531}
+  CameraResetScript: {fileID: 2069680723}
 --- !u!1 &358945767
 GameObject:
   m_ObjectHideFlags: 0
@@ -7560,6 +7563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0791a252ae9bf4bb7ec55f766ac28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastPointedObject: {fileID: 0}
 --- !u!1001 &1014875486
 PrefabInstance:
   m_ObjectHideFlags: 0

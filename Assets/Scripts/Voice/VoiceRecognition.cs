@@ -24,12 +24,19 @@ public class VoiceRecognition : MonoBehaviour
     public float zoomSpeed = 5f;
 
     private bool isPanning = false;
-    private Vector3 lastMousePosition;
-    public float panSpeed = 0.1f;
+    private Vector3 panDirection = Vector3.zero;
+    public float panSpeed = .7f;
 
     public TextMeshProUGUI recognitionText; // Reference to your TMP Text element
 
     public Camera mainCamera;
+
+    public CameraReset cameraReset;
+    public CameraResetScript CameraResetScript;
+
+    private LeapPointing LeapPointing;
+    private SkeletonPartVisibility skeletonPartVisibility;
+
 
     void Start()
     {
@@ -48,6 +55,12 @@ public class VoiceRecognition : MonoBehaviour
         voiceCommands.Add("pan down", () => StartPan(Vector3.down));
         voiceCommands.Add("pan left", () => StartPan(Vector3.left));
         voiceCommands.Add("pan right", () => StartPan(Vector3.right));
+        voiceCommands.Add("reset", ResetCamera);
+        voiceCommands.Add("reset camera", ResetCamera);
+        voiceCommands.Add("What's this", IdentifyLastPointedObject);
+        voiceCommands.Add("What is this", IdentifyLastPointedObject);
+
+
 
 
         // Initialize KeywordRecognizer with the voice command dictionary
@@ -69,7 +82,10 @@ public class VoiceRecognition : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Update method called");
+        if (isPanning)
+        {
+            PanCamera(panDirection);
+        }
 
         if (isRotating)
         {
@@ -120,6 +136,7 @@ public class VoiceRecognition : MonoBehaviour
         isRotating = false;
         StopContinuousZoom();
         recognitionText.text = "Continuous commands stopped.";
+        isPanning = false;
     }
 
     private void StartZoomIn()
@@ -170,5 +187,58 @@ public class VoiceRecognition : MonoBehaviour
 
         // Set the new position
         mainCamera.transform.localPosition = newPosition;
+    }
+
+    private void StartPan(Vector3 direction)
+    {
+        isPanning = true;
+        panDirection = direction;
+    }
+
+    private void StopPan()
+    {
+        isPanning = false;
+        recognitionText.text = "Panning stopped.";
+    }
+
+    void PanCamera(Vector3 direction)
+    {
+        // Adjust pan speed based on your preferences
+        float adjustedPanSpeed = panSpeed * Time.deltaTime;
+
+        // Apply the pan direction to the camera's position
+        transform.Translate(direction * adjustedPanSpeed, Space.World);
+    }
+
+    private void ResetCamera()
+    {
+        // Call the ResetCamera method in the CameraReset script
+        cameraReset.ResetCamera();
+        CameraResetScript.StartReset();
+    }
+
+    private void IdentifyLastPointedObject()
+    {
+        if (leapPointingScript != null && skeletonPartVisibility != null)
+        {
+            GameObject lastPointedObject = leapPointingScript.lastPointedObject;
+
+            if (lastPointedObject != null)
+            {
+                // Assuming that the layer of the last pointed object corresponds to the layer you want to toggle
+                int layerToToggle = lastPointedObject.layer;
+
+                // Call the ToggleLayerVisibility function from the SkeletonPartVisibility script
+                skeletonPartVisibility.ToggleLayerVisibility(layerToToggle);
+            }
+            else
+            {
+                Debug.Log("No object pointed.");
+            }
+        }
+        else
+        {
+            Debug.LogError("LeapPointingScript or SkeletonPartVisibility script not found.");
+        }
     }
 }
