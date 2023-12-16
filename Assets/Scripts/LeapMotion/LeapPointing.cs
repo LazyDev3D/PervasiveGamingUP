@@ -55,7 +55,7 @@ public class LeapPointing : MonoBehaviour
             }
             else
             {
-                Debug.LogError("LeapServiceProvider is null. Make sure it's attached to the same GameObject as LeapPointing.");
+              
             }
         }
     }

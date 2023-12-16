@@ -23,7 +23,9 @@ public class VoiceRecognition : MonoBehaviour
     private bool isZooming = false;
     public float zoomSpeed = 5f;
 
-    private LeapPointing leapPointingScript;
+    private bool isPanning = false;
+    private Vector3 lastMousePosition;
+    public float panSpeed = 0.1f;
 
     public TextMeshProUGUI recognitionText; // Reference to your TMP Text element
 
@@ -31,7 +33,6 @@ public class VoiceRecognition : MonoBehaviour
 
     void Start()
     {
-        leapPointingScript = GetComponent<LeapPointing>();
         string[] keywords = { "What is this" };
         // Set up voice commands
         voiceCommands.Add("rotate left", () => StartContinuousRotation(Vector3.up));
@@ -43,6 +44,11 @@ public class VoiceRecognition : MonoBehaviour
         voiceCommands.Add("faster", IncreaseRotationSpeed);
         voiceCommands.Add("zoom in", StartZoomIn);
         voiceCommands.Add("zoom out", StartZoomOut);
+        voiceCommands.Add("pan up", () => StartPan(Vector3.up));
+        voiceCommands.Add("pan down", () => StartPan(Vector3.down));
+        voiceCommands.Add("pan left", () => StartPan(Vector3.left));
+        voiceCommands.Add("pan right", () => StartPan(Vector3.right));
+
 
         // Initialize KeywordRecognizer with the voice command dictionary
         keywordRecognizer = new KeywordRecognizer(voiceCommands.Keys.ToArray());
@@ -58,45 +64,24 @@ public class VoiceRecognition : MonoBehaviour
         // Update the recognition text on the UI
         recognitionText.text = "You said: " + speech.text;
 
-        if (args.text == "What is this")
-        {
-            // Get the last pointed object from the LeapPointing script
-            GameObject pointedObject = leapPointingScript.GetLastPointedObject();
-
-            if (pointedObject != null)
-            {
-                // Now, you can perform the isolate script or any other action with the pointed object
-                Debug.Log("Performing action on: " + pointedObject.name);
-                // Add your logic to perform isolation or any other action here
-            }
-            else
-            {
-                Debug.Log("No object pointed at.");
-            }
-        }
     }
-}
 
 
     void Update()
     {
+        Debug.Log("Update method called");
+
         if (isRotating)
         {
-            // Implement continuous rotation logic here
-            // For example, rotate the camera continuously around the specified axis
-            // You can use Time.deltaTime to make the rotation frame-rate independent
+            Debug.Log("Rotating");
             RotateCamera(rotatingAxis);
-
         }
 
         if (isZooming)
         {
-            // Implement continuous zoom logic here
-            // For example, move the camera forward or backward
-            // You can use Time.deltaTime to make the zoom frame-rate independent
+            Debug.Log("Zooming");
             ZoomCamera();
         }
-
     }
 
     public void RotateCamera(Vector3 axis)
@@ -139,12 +124,14 @@ public class VoiceRecognition : MonoBehaviour
 
     private void StartZoomIn()
     {
+        isZooming = true;
         isZoomingIn = true;
         isZoomingOut = false;
     }
 
     private void StartZoomOut()
     {
+        isZooming = true;
         isZoomingIn = false;
         isZoomingOut = true;
     }
@@ -168,28 +155,20 @@ public class VoiceRecognition : MonoBehaviour
 
         if (isZoomingIn)
         {
-            zoomDirection = 1f;
+            zoomDirection = 1f; // Inverted direction for zooming in
         }
         else if (isZoomingOut)
         {
-            zoomDirection = -1f;
+            zoomDirection = -1f; // Inverted direction for zooming out
         }
 
-        // Adjust this value based on your scene and how much you want to zoom
-        float zoomSpeedFactor = 5f;
+        // Adjust this value based on how much you want to zoom
+        float zoomSpeedFactor = 2f; // Adjust this value based on your scene
 
         // Calculate the new position
-        Vector3 newPosition = mainCamera.transform.position + mainCamera.transform.forward * zoomDirection * Time.deltaTime * zoomSpeed * zoomSpeedFactor;
-
-        // Add a check to ensure you don't zoom out too far
-        float minZoomDistance = 5f; // Adjust this value based on your scene
-        float maxZoomDistance = 20f; // Adjust this value based on your scene
-
-        float newZoomDistance = Vector3.Distance(mainCamera.transform.position, transform.position);
-
-        newZoomDistance = Mathf.Clamp(newZoomDistance, minZoomDistance, maxZoomDistance);
+        Vector3 newPosition = mainCamera.transform.localPosition + mainCamera.transform.forward * zoomDirection * Time.deltaTime * zoomSpeed * zoomSpeedFactor;
 
         // Set the new position
-        mainCamera.transform.position = transform.position + mainCamera.transform.forward * newZoomDistance;
+        mainCamera.transform.localPosition = newPosition;
     }
 }
