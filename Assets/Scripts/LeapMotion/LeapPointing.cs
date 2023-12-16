@@ -21,6 +21,7 @@ public class LeapPointing : MonoBehaviour
 
     void Update()
     {
+        Vector3 indexFingerTip = Vector3.zero;
         if (leapProvider != null)
         {
             // Get the current Leap Motion frame from the LeapServiceProvider
@@ -38,11 +39,14 @@ public class LeapPointing : MonoBehaviour
                         // Assuming index finger is tracked on the hand
                         Finger indexFinger = hand.Fingers[(int)Finger.FingerType.TYPE_INDEX];
 
-                        // Assuming the bone structure you provided, adjust the hierarchy
-                        Vector3 indexFingerTip = indexFinger.TipPosition;
+                        // Adjust the hierarchy
+                        indexFingerTip = indexFinger.TipPosition;
 
                         // Use Leap Motion hand tracking to raycast from the index finger tip
-                        Ray ray = new Ray(indexFingerTip, Camera.main.transform.forward);
+                        Debug.DrawLine(indexFingerTip, indexFingerTip + hand.Fingers[1].bones[(int)Bone.BoneType.TYPE_DISTAL].Direction * 10f, Color.red, 0.1f);
+
+                        // Perform the ray cast
+                        Ray ray = new Ray(indexFingerTip, hand.Fingers[1].bones[(int)Bone.BoneType.TYPE_DISTAL].Direction);
                         RaycastHit hit;
 
                         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
@@ -55,7 +59,7 @@ public class LeapPointing : MonoBehaviour
             }
             else
             {
-              
+                // Handle the case where there are no hands
             }
         }
     }
