@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class SkeletonPartVisibility : MonoBehaviour
@@ -9,6 +10,14 @@ public class SkeletonPartVisibility : MonoBehaviour
     private GameObject lastClickedObject;
     public bool isInIsolationMode;
 
+    public GameObject infoPanel;
+    public TextMeshProUGUI infoTitle;
+
+    void Start()
+    {
+        // Ensure the initial state
+        ToggleInfoPanelVisibility(false);
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -24,19 +33,17 @@ public class SkeletonPartVisibility : MonoBehaviour
 
                 if (lastClickedObject == clickedObject)
                 {
-                    // Clicked the same object again
                     if (isInIsolationMode)
                     {
-                        // Toggle visibility for the entire layer of the last clicked object
                         ToggleLayerVisibility(skinObject, true);
                         ToggleLayerVisibility(musclesObject, true);
                         ToggleLayerVisibility(skeletonObject, true);
 
                         isInIsolationMode = false;
+                        ToggleInfoPanelVisibility(false);
                     }
                     else
                     {
-                        // Toggle visibility for the entire layer
                         ToggleLayerVisibility(skinObject, true);
                         ToggleLayerVisibility(musclesObject, true);
                         ToggleLayerVisibility(skeletonObject, true);
@@ -44,16 +51,15 @@ public class SkeletonPartVisibility : MonoBehaviour
                 }
                 else
                 {
-                    // Clicked a different object, toggle visibility of the clicked layer
                     ToggleLayerVisibility(skinObject, false);
                     ToggleLayerVisibility(musclesObject, false);
                     ToggleLayerVisibility(skeletonObject, false);
 
-                    // Then, toggle visibility for the specific clicked object
                     clickedObject.SetActive(true);
-
                     lastClickedObject = clickedObject;
                     isInIsolationMode = true;
+
+                    UpdateInfoPanel();
                 }
             }
         }
@@ -77,5 +83,25 @@ public class SkeletonPartVisibility : MonoBehaviour
 
         lastClickedObject = pointedObject;
         isInIsolationMode = true;
+    }
+
+    void ToggleInfoPanelVisibility(bool isVisible)
+    {
+        if (infoPanel != null)
+        {
+            infoPanel.SetActive(isVisible);
+        }
+    }
+
+    void UpdateInfoPanel()
+    {
+        if (infoPanel != null && infoTitle != null && lastClickedObject != null)
+        {
+            // Assuming lastClickedObject has a name to display
+            infoTitle.text = lastClickedObject.name;
+
+            // Make the InfoPanel visible
+            ToggleInfoPanelVisibility(true);
+        }
     }
 }

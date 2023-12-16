@@ -43,7 +43,7 @@ public class LeapPointing : MonoBehaviour
                         indexFingerTip = indexFinger.TipPosition;
 
                         // Use Leap Motion hand tracking to raycast from the index finger tip
-                        Debug.DrawLine(indexFingerTip, indexFingerTip + hand.Fingers[1].bones[(int)Bone.BoneType.TYPE_DISTAL].Direction * 10f, Color.red, 0.1f);
+                        Debug.DrawLine(indexFingerTip, indexFingerTip + hand.Fingers[1].bones[(int)Bone.BoneType.TYPE_DISTAL].Direction * 10f, Color.blue, 0.01f);
 
                         // Perform the ray cast
                         Ray ray = new Ray(indexFingerTip, hand.Fingers[1].bones[(int)Bone.BoneType.TYPE_DISTAL].Direction);
@@ -69,3 +69,4 @@ public class LeapPointing : MonoBehaviour
         return lastPointedObject;
     }
 }
+
