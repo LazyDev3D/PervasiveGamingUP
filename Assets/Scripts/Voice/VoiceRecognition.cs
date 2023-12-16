@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Windows.Speech;
 using System.Linq; // Add this using directive for LINQ
+using Leap.Unity.HandsModule;
 
 public class VoiceRecognition : MonoBehaviour
 {
@@ -34,8 +35,8 @@ public class VoiceRecognition : MonoBehaviour
     public CameraReset cameraReset;
     public CameraResetScript CameraResetScript;
 
-    private LeapPointing LeapPointing;
-    private SkeletonPartVisibility skeletonPartVisibility;
+    public LeapPointing LeapPointing;
+    public SkeletonPartVisibility skeletonPartVisibility;
 
 
     void Start()
@@ -59,7 +60,9 @@ public class VoiceRecognition : MonoBehaviour
         voiceCommands.Add("reset camera", ResetCamera);
         voiceCommands.Add("What's this", IdentifyLastPointedObject);
         voiceCommands.Add("What is this", IdentifyLastPointedObject);
-
+        voiceCommands.Add("What is that", IdentifyLastPointedObject);
+        voiceCommands.Add("What's that", IdentifyLastPointedObject);
+        voiceCommands.Add("show all", ShowAll);
 
 
 
@@ -89,13 +92,11 @@ public class VoiceRecognition : MonoBehaviour
 
         if (isRotating)
         {
-            Debug.Log("Rotating");
             RotateCamera(rotatingAxis);
         }
 
         if (isZooming)
         {
-            Debug.Log("Zooming");
             ZoomCamera();
         }
     }
@@ -219,9 +220,18 @@ public class VoiceRecognition : MonoBehaviour
 
     private void IdentifyLastPointedObject()
     {
-        if (leapPointingScript != null && skeletonPartVisibility != null)
+        Debug.Log("IdentifyLastFunction");
+        Debug.Log("IdentifyLastFunction");
+        Debug.Log("IdentifyLastFunction");
+        Debug.Log("IdentifyLastFunction");
+        Debug.Log("IdentifyLastFunction");
+        Debug.Log("IdentifyLastFunction");
+        Debug.Log("IdentifyLastFunction");
+        Debug.Log("IdentifyLastFunction");
+        Debug.Log("IdentifyLastFunction");
+        if (LeapPointing != null && skeletonPartVisibility != null)
         {
-            GameObject lastPointedObject = leapPointingScript.lastPointedObject;
+            GameObject lastPointedObject = LeapPointing.lastPointedObject;
 
             if (lastPointedObject != null)
             {
@@ -229,7 +239,10 @@ public class VoiceRecognition : MonoBehaviour
                 int layerToToggle = lastPointedObject.layer;
 
                 // Call the ToggleLayerVisibility function from the SkeletonPartVisibility script
-                skeletonPartVisibility.ToggleLayerVisibility(layerToToggle);
+                skeletonPartVisibility.ToggleLayerVisibility(lastPointedObject, !lastPointedObject.activeSelf);
+
+                // Toggle isolation mode in SkeletonPartVisibility
+                skeletonPartVisibility.IsolatePointedObject(lastPointedObject);
             }
             else
             {
@@ -239,6 +252,28 @@ public class VoiceRecognition : MonoBehaviour
         else
         {
             Debug.LogError("LeapPointingScript or SkeletonPartVisibility script not found.");
+        }
+    }
+
+    private void ShowAll()
+    {
+        if (skeletonPartVisibility != null)
+        {
+            // Toggle visibility for all layers
+            skeletonPartVisibility.ToggleLayerVisibility(skeletonPartVisibility.skinObject, true);
+            skeletonPartVisibility.ToggleLayerVisibility(skeletonPartVisibility.musclesObject, true);
+            skeletonPartVisibility.ToggleLayerVisibility(skeletonPartVisibility.skeletonObject, true);
+
+            GameObject lastPointedObject = LeapPointing.lastPointedObject;
+
+            lastPointedObject = null;
+            skeletonPartVisibility.isInIsolationMode = false;
+
+            Debug.Log("Show all layers.");
+        }
+        else
+        {
+            Debug.LogError("SkeletonPartVisibility script not found.");
         }
     }
 }

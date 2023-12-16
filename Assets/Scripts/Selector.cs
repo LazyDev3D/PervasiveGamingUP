@@ -7,7 +7,7 @@ public class SkeletonPartVisibility : MonoBehaviour
     public GameObject skeletonObject;
 
     private GameObject lastClickedObject;
-    private bool isInIsolationMode;
+    public bool isInIsolationMode;
 
     void Update()
     {
@@ -59,11 +59,23 @@ public class SkeletonPartVisibility : MonoBehaviour
         }
     }
 
-    void ToggleLayerVisibility(GameObject layerObject, bool isVisible)
+    public void ToggleLayerVisibility(GameObject layerObject, bool isVisible)
     {
         foreach (Transform child in layerObject.transform)
         {
             child.gameObject.SetActive(isVisible);
         }
+    }
+
+    public void IsolatePointedObject(GameObject pointedObject)
+    {
+        ToggleLayerVisibility(skinObject, false);
+        ToggleLayerVisibility(musclesObject, false);
+        ToggleLayerVisibility(skeletonObject, false);
+
+        pointedObject.SetActive(true);
+
+        lastClickedObject = pointedObject;
+        isInIsolationMode = true;
     }
 }
