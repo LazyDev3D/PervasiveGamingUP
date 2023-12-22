@@ -14,6 +14,7 @@ public class VoiceRecognition : MonoBehaviour
     private bool isRotating = false;
     private Vector3 rotatingAxis = Vector3.zero;
     private float rotationSpeed = 30f;
+    private float zoomSpeed = 1.0f; // Initial zoom speed
     private float minRotationSpeed = 10f;
     private float maxRotationSpeed = 50f;
     private float rotationSpeedChangeAmount = 5f;
@@ -22,7 +23,7 @@ public class VoiceRecognition : MonoBehaviour
     private bool isZoomingIn = false;
     private bool isZoomingOut = false;
     private bool isZooming = false;
-    public float zoomSpeed = 5f;
+    public float zoomSpeedFactor = 5f;
 
     private bool isPanning = false;
     private Vector3 panDirection = Vector3.zero;
@@ -49,8 +50,8 @@ public class VoiceRecognition : MonoBehaviour
         voiceCommands.Add("rotate up", () => StartContinuousRotation(Vector3.left));
         voiceCommands.Add("rotate down", () => StartContinuousRotation(Vector3.right));
         voiceCommands.Add("stop", StopContinuousCommands);
-        voiceCommands.Add("slower", DecreaseRotationSpeed);
-        voiceCommands.Add("faster", IncreaseRotationSpeed);
+        voiceCommands.Add("slower", DecreaseSpeed);
+        voiceCommands.Add("faster", IncreaseSpeed);
         voiceCommands.Add("zoom in", StartZoomIn);
         voiceCommands.Add("zoom out", StartZoomOut);
         voiceCommands.Add("pan up", () => StartPan(Vector3.up));
@@ -121,15 +122,17 @@ public class VoiceRecognition : MonoBehaviour
         isRotating = false;
     }
 
-    private void DecreaseRotationSpeed()
+    private void DecreaseSpeed()
     {
         rotationSpeed = Mathf.Max(rotationSpeed - rotationSpeedChangeAmount, minRotationSpeed);
+        zoomSpeed /= 1.5f;
         Debug.Log("Rotation speed decreased to: " + rotationSpeed);
     }
 
-    private void IncreaseRotationSpeed()
+    private void IncreaseSpeed()
     {
         rotationSpeed = Mathf.Min(rotationSpeed + rotationSpeedChangeAmount, maxRotationSpeed);
+        zoomSpeed *= 1.5f;
         Debug.Log("Rotation speed increased to: " + rotationSpeed);
     }
 
@@ -182,7 +185,6 @@ public class VoiceRecognition : MonoBehaviour
         }
 
         // Adjust this value based on how much you want to zoom
-        float zoomSpeedFactor = 2f; // Adjust this value based on your scene
 
         // Calculate the new position
         Vector3 newPosition = mainCamera.transform.localPosition + mainCamera.transform.forward * zoomDirection * Time.deltaTime * zoomSpeed * zoomSpeedFactor;
