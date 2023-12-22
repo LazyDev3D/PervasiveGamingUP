@@ -764,6 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e488f145d3c5d8458044107d1c1121c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HelpMenu: {fileID: 917017057}
   zoomSpeedFactor: 5
   panSpeed: 0.1
   recognitionText: {fileID: 206108695}
@@ -1463,6 +1464,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
   m_PrefabInstance: {fileID: 1839403215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &589759130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4669553856266401568, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+  m_PrefabInstance: {fileID: 1812345582}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &618886982
 PrefabInstance:
@@ -7592,11 +7598,25 @@ MonoBehaviour:
   panelRectTransform: {fileID: 917017053}
   moveDuration: 1
   targetX: -375
+  isPanelVisible: 0
 --- !u!4 &927770961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3257021079503596468, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
   m_PrefabInstance: {fileID: 1812345582}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &927770962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589759130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ddc528b48e79b4692674d7939d9ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HelpMenu: {fileID: 0}
 --- !u!1 &977351902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 166326, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
@@ -11812,6 +11832,9 @@ PrefabInstance:
     - {fileID: 208765187, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4669553856266401568, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 927770962}
     - targetCorrespondingSourceObject: {fileID: 7308687533616100166, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1205146369}
@@ -12128,6 +12151,7 @@ MonoBehaviour:
   panelRectTransform: {fileID: 1906969917}
   moveDuration: 1
   targetX: -375
+  isPanelVisible: 0
 --- !u!114 &1906969919
 MonoBehaviour:
   m_ObjectHideFlags: 0
