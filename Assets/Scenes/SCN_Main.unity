@@ -341,7 +341,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Right Mouse Button + Drag
 
-'
+    Say Pan, "Up", "Down", "Left" or "Right"
+
+    Using
+    the box slider on the LM menu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -871,7 +874,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Left Mouse Button + Drag OR\nWASD or  \u2191 \u2193 \u2192 \u2190 OR\nSay,
-    \"Rotate\" \"Up\", \"Down\" \"Left \"Right\"."
+    \"Rotate\" \"Up\", \"Down\" \"Left \"Right\".\nUsing Arrow buttons on the Leap
+    Motion Menu"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1464,11 +1468,6 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
   m_PrefabInstance: {fileID: 1839403215}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &589759130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4669553856266401568, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
-  m_PrefabInstance: {fileID: 1812345582}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &618886982
 PrefabInstance:
@@ -5498,7 +5497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: 34.202}
+  m_AnchoredPosition: {x: 4, y: 7.1}
   m_SizeDelta: {x: 322.91, y: 25.357}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &667244588
@@ -7604,19 +7603,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3257021079503596468, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
   m_PrefabInstance: {fileID: 1812345582}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &927770962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589759130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ddc528b48e79b4692674d7939d9ba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HelpMenu: {fileID: 0}
 --- !u!1 &977351902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 166326, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
@@ -9257,7 +9243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.0003, y: 2.3516}
+  m_AnchoredPosition: {x: 4.0003, y: -24.75039}
   m_SizeDelta: {x: 322.91, y: 38.344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119441417
@@ -9392,7 +9378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.0002, y: 87.381}
+  m_AnchoredPosition: {x: 4.0003, y: 81.5}
   m_SizeDelta: {x: 322.91, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1133478465
@@ -11832,9 +11818,6 @@ PrefabInstance:
     - {fileID: 208765187, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4669553856266401568, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 927770962}
     - targetCorrespondingSourceObject: {fileID: 7308687533616100166, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1205146369}
@@ -11991,7 +11974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.9973, y: -69}
+  m_AnchoredPosition: {x: 1.9973, y: -103.01001}
   m_SizeDelta: {x: 318.9, y: 60.097}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1896642461
@@ -12017,7 +12000,13 @@ MonoBehaviour:
   m_text: 'Click on mesh OR
 
     Say, "What is this", while cursor or index finger
-    is pointing at mesh.'
+    is pointing at mesh.
+
+    Use the slider on the LM menu
+
+
+    Say "Help" to toggle
+    this menu.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12493,7 +12482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.9999, y: -27.889984}
+  m_AnchoredPosition: {x: 3.9999, y: -61.9}
   m_SizeDelta: {x: 322.91, y: 22.139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2129562319

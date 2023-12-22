@@ -3,19 +3,30 @@ using UnityEngine;
 public class LeapMoveButtons : MonoBehaviour
 {
     public VoiceRecognition VoiceRecognition;
-    public CameraReset camer;// Reference to the PanelMovement script
+    public CameraReset CameraReset;
+    public CameraResetScript CameraResetZoom;
     public string objectName; // You can set this in the Inspector or directly in the script
     public Vector3 direction;
 
     public void OnButtonPress()
     {
-        SetDirectionBasedOnObjectName(); // Call this method to set the direction based on the object name
-        VoiceRecognition.StartContinuousRotation(direction);
-        Debug.Log(objectName);
+        if (objectName != "leapReset")
+        {
+            SetDirectionBasedOnObjectName(); // Call this method to set the direction based on the object name
+            VoiceRecognition.StartContinuousRotation(direction);
+            Debug.Log(objectName);
+        }
+        
 
         if (objectName == "leapHelp")
         {
             direction = Vector3.right;
+        }
+
+        if (objectName == "leapReset")
+        {
+            CameraReset.StartReset();
+            CameraResetZoom.StartReset();
         }
     }
 
