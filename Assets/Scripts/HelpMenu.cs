@@ -9,7 +9,7 @@ public class PanelMovement : MonoBehaviour
     public float moveDuration = 1.5f;
     public float targetX = 100f; // Target x-coordinate when the panel is fully visible
 
-    private bool isPanelVisible = false;
+    public bool isPanelVisible = false;
 
     void Start()
     {

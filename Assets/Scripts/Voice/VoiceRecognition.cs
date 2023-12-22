@@ -19,6 +19,7 @@ public class VoiceRecognition : MonoBehaviour
     private float maxRotationSpeed = 50f;
     private float rotationSpeedChangeAmount = 5f;
 
+    public PanelMovement HelpMenu;
 
     private bool isZoomingIn = false;
     private bool isZoomingOut = false;
@@ -54,6 +55,7 @@ public class VoiceRecognition : MonoBehaviour
         voiceCommands.Add("faster", IncreaseSpeed);
         voiceCommands.Add("zoom in", StartZoomIn);
         voiceCommands.Add("zoom out", StartZoomOut);
+        voiceCommands.Add("help", help);
         voiceCommands.Add("pan up", () => StartPan(Vector3.up));
         voiceCommands.Add("pan down", () => StartPan(Vector3.down));
         voiceCommands.Add("pan left", () => StartPan(Vector3.left));
@@ -140,7 +142,6 @@ public class VoiceRecognition : MonoBehaviour
     {
         isRotating = false;
         StopContinuousZoom();
-        recognitionText.text = "Continuous commands stopped.";
         isPanning = false;
     }
 
@@ -167,8 +168,7 @@ public class VoiceRecognition : MonoBehaviour
 
     private void StopContinuousZoom()
     {
-        isZooming = false;
-        recognitionText.text = "Continuous zoom stopped.";
+        isZooming = false;     
     }
 
     private void ZoomCamera()
@@ -278,5 +278,10 @@ public class VoiceRecognition : MonoBehaviour
         {
             Debug.LogError("SkeletonPartVisibility script not found.");
         }
+    }
+
+    private void help()
+    {
+        HelpMenu.TogglePanelVisibility();
     }
 }
