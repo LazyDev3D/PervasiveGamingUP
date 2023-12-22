@@ -12420,7 +12420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14bf51a1f0a402b4d8bdb3604b7f0c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 0.3
+  panSpeed: 0.2
   horizontalSlider: {fileID: 2118185632}
   verticalSlider: {fileID: 2118185632}
 --- !u!114 &2118185632 stripped
