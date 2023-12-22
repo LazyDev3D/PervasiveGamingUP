@@ -690,6 +690,7 @@ GameObject:
   - component: {fileID: 239017533}
   - component: {fileID: 239017535}
   - component: {fileID: 239017536}
+  - component: {fileID: 239017537}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
@@ -764,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e488f145d3c5d8458044107d1c1121c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 0.5
+  zoomSpeedFactor: 5
   panSpeed: 0.1
   recognitionText: {fileID: 206108695}
   mainCamera: {fileID: 2069680720}
@@ -800,6 +801,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoContentText: {fileID: 1550695582}
+--- !u!114 &239017537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239017528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542b45a141ad9ad46881fc6cf52b3e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSlider: {fileID: 0}
+  minZoom: 1
+  maxZoom: 5
 --- !u!1 &358945767
 GameObject:
   m_ObjectHideFlags: 0
@@ -11056,6 +11072,14 @@ PrefabInstance:
     - target: {fileID: 1595274854992100159, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601864844314268701, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 1970323472}
+    - target: {fileID: 3601864844314268701, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
+      propertyPath: restingHeight
+      value: 0.681
       objectReference: {fileID: 0}
     - target: {fileID: 3601864844495126438, guid: 9ee124cb2665d084f929bfec00bb2124, type: 3}
       propertyPath: m_Name

@@ -56,9 +56,6 @@ public class ObjectDescriptionManager : MonoBehaviour
         objectDescriptions.Add("Gracilis", "The gracilis is a long, thin muscle that runs down the inner thigh, contributing to thigh adduction.");
         objectDescriptions.Add("Sartorius", "The sartorius is the longest muscle in the human body, crossing from the hip to the knee and aiding in thigh flexion and rotation.");
 
-        // Abdominal Muscles
-        objectDescriptions.Add("RectusAbdominis", "The rectus abdominis, commonly known as the 'six-pack,' is a paired muscle running vertically along the front of the abdomen, contributing to trunk flexion.");
-
         // Glutes
         objectDescriptions.Add("GluteusMaximus", "The gluteus maximus is the largest of the gluteal muscles and plays a major role in hip extension.");
         objectDescriptions.Add("GluteusMedius", "The gluteus medius is one of the gluteal muscles, contributing to hip abduction and stabilization of the pelvis.");
