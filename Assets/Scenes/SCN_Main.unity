@@ -141,7 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceRecognition: {fileID: 239017533}
-  camer: {fileID: 0}
+  CameraReset: {fileID: 0}
+  CameraResetZoom: {fileID: 0}
   objectName: ButtonDown
   direction: {x: 0, y: 0, z: 0}
 --- !u!1 &54993047
@@ -1191,7 +1192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceRecognition: {fileID: 239017533}
-  camer: {fileID: 0}
+  CameraReset: {fileID: 0}
+  CameraResetZoom: {fileID: 0}
   objectName: ButtonUp
   direction: {x: 0, y: 0, z: 0}
 --- !u!4 &396709293 stripped
@@ -6145,7 +6147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceRecognition: {fileID: 239017533}
-  camer: {fileID: 0}
+  CameraReset: {fileID: 0}
+  CameraResetZoom: {fileID: 0}
   objectName: ButtonRight
   direction: {x: 0, y: 0, z: 0}
 --- !u!1 &811357728 stripped
@@ -9010,14 +9013,14 @@ PrefabInstance:
     - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1495776098}
+      objectReference: {fileID: 1495776097}
     - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7276873687327243346, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonInteraction, Assembly-CSharp
+      value: LeapMoveButtons, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7308687533616100166, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       propertyPath: m_Name
@@ -9028,9 +9031,6 @@ PrefabInstance:
     - {fileID: 208765187, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7308687533616100166, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1495776098}
     - targetCorrespondingSourceObject: {fileID: 7308687533616100166, guid: b1c3191bdae44404d95613546ed5b5eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1495776097}
@@ -9733,7 +9733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceRecognition: {fileID: 239017533}
-  camer: {fileID: 0}
+  CameraReset: {fileID: 0}
+  CameraResetZoom: {fileID: 0}
   objectName: leapHelp
   direction: {x: 0, y: 0, z: 0}
 --- !u!1 &1226532490
@@ -10320,7 +10321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceRecognition: {fileID: 239017533}
-  camer: {fileID: 0}
+  CameraReset: {fileID: 0}
+  CameraResetZoom: {fileID: 0}
   objectName: ButtonLeft
   direction: {x: 0, y: 0, z: 0}
 --- !u!1 &1393610105
@@ -10486,22 +10488,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceRecognition: {fileID: 239017533}
-  camer: {fileID: 0}
-  objectName: leapHelp
+  CameraReset: {fileID: 239017531}
+  CameraResetZoom: {fileID: 2069680723}
+  objectName: leapReset
   direction: {x: 0, y: 0, z: 0}
---- !u!114 &1495776098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495776095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81efbe07da27244bb64dfad414257c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelMovement: {fileID: 917017057}
 --- !u!1 &1507144090
 GameObject:
   m_ObjectHideFlags: 0
